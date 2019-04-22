@@ -1,0 +1,14 @@
+---
+version: '3'
+
+services:
+  fargate-sshd:
+    container_name: fargate-sshd
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SSH_PORT: 2222
+    image: dceoy/fargate-sshd:latest
+    ports:
+      - 2222:2222
