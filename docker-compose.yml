@@ -2,13 +2,13 @@
 version: '3'
 
 services:
-  fargate-sshd:
-    container_name: fargate-sshd
+  ssh-bastion:
+    container_name: ssh-bastion
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        SSH_PORT: 2222
-    image: dceoy/fargate-sshd:latest
+        SSH_PORT: 443
+    image: ssh-bastion:latest
     ports:
-      - 2222:2222
+      - 443:443
